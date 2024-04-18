@@ -85,7 +85,7 @@ xn = float(input("Enter calculation point (xn): "))
 step_size = float(input("Enter step size (h): "))
 
 # Call RK4 method
-x_values, y_values = rk4(x0, y0, z0, xn, step_size)
+x_value, y_value = rk4(x0, y0, z0, xn, step_size)
 
 # Plotting
 plt.plot(x_values, y_values)
