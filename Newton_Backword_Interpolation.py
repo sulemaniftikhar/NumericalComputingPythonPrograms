@@ -1,52 +1,43 @@
-# Calculation of u mentioned in formula
-def u_cal(u, n):
-    temp = u
-    for i in range(n):
-        temp = temp * (u + i)
-    return temp
+import numpy
 
 
-# Calculating factorial of given n
-def fact(n):
-    f = 1
-    for i in range(2, n + 1):
-        f *= i
-    return f
+def newton_backward_interpolation(x, y, x_new):
+    n = len(x)
+
+    # Create a table to store the divided differences
+    divided_differences = numpy.zeros((n, n))
+
+    # Fill in the first column of the divided differences table
+    divided_differences[:, 0] = y
+
+    # Calculate the remaining divided differences
+    for j in range(1, n):
+        for i in range(n - j):
+            divided_differences[i, j] = (divided_differences[i + 1, j - 1] - divided_differences[i, j - 1]) / (
+                    x[i + j] - x[i])
+
+    # Calculate the interpolated value
+    y_new = divided_differences[0, 0]
+    for j in range(1, n):
+        term = divided_differences[0, j]
+        for k in range(j):
+            term *= (x_new - x[k])
+        y_new += term
+
+    return y_new
 
 
-# number of values given
-n = 6
-x = [1941, 1951, 1961, 1971, 1981, 1991]
+years = numpy.array([1941, 1951, 1961, 1971, 1981, 1991])
+population = numpy.array([12, 15, 20, 27, 39, 51])
+estimated_year1 = 1976
+estimated_year2 = 1978
 
-# y is used for difference
-# table and y[0] used for input
-y = [[0.0 for _ in range(n)] for __ in range(n)]
-y[0][0] = 12
-y[1][0] = 15
-y[2][0] = 20
-y[3][0] = 27
-y[4][0] = 39
-y[5][0] = 52
+interpolated_population2 = newton_backward_interpolation(years, population, estimated_year2)
+interpolated_population1 = newton_backward_interpolation(years, population, estimated_year1)
 
-# Calculating the backward difference table
-for i in range(1, n):
-    for j in range(n - 1, i - 1, -1):
-        y[j][i] = y[j][i - 1] - y[j - 1][i - 1]
+result = interpolated_population2 - interpolated_population1
 
-# Displaying the backward difference table
-print("Backward Difference Table:")
-for i in range(n):
-    for j in range(i + 1):
-        print(y[i][j], end="\t")
-    print()
+print(f"Interpolated population at year {estimated_year1} is: {interpolated_population1:.4f}")
+print(f"Interpolated population at year {estimated_year2} is: {interpolated_population2:.4f}")
 
-# Value to interpolate at
-value = 1978
-
-# Initializing u and sum
-sum = y[n - 1][0]
-u = (value - x[n - 1]) / (x[1] - x[0])  # Corrected calculation of u
-for i in range(1, n):
-    sum = sum + (u_cal(u, i) * y[n - 1][i]) / fact(i)
-
-print("\nValue at", value, "is", sum)
+print(f"Interpolated population from year {estimated_year1}  to {estimated_year2} is: {result:.4f}")
