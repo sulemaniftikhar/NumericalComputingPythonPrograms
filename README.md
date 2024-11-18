@@ -1,61 +1,108 @@
-# Numerical Computing Assignment
+---
 
-This repository contains solutions to **Assignment #1** for the **Numerical Computing** course (Spring 2024). The assignment focuses on implementing computational methods such as root-finding, solving ordinary differential equations (ODEs), and data interpolation.
+# 📊 **Numerical Computing Assignment**  
+
+Welcome to the repository for **Assignment #1** of the **Numerical Computing** course (Spring 2024). This assignment dives into core computational methods like **root-finding**, **solving ODEs**, and **data interpolation**, providing both theoretical insights and practical implementations.  
 
 ---
 
-## 📑 Contents
+## 📑 **Contents**  
 
-### Part 1: Differential Equations and Numerical Methods
+### 🧮 **Part 1: Differential Equations and Numerical Methods**  
 1. **Newton-Raphson Method**  
-   - Implementation of the Newton-Raphson method to solve algebraic and transcendental equations.
-   - Demonstration with an example to find all roots of a selected equation.
+   - Solves algebraic and transcendental equations.  
+   - Includes an example to find all roots of a given equation.  
 
-2. **Solving an ODE**  
-   - Finding the **exact solution**.
-   - Solving numerically using:
-     - **Euler's method**.
-     - **Runge-Kutta (RK) method of order 4**.
-   - Extracting, interpolating, and visualizing the data solutions.
+2. **Ordinary Differential Equations (ODEs)**  
+   - **Exact Solution**: Analytical methods to derive the solution.  
+   - **Numerical Methods**:  
+     - **Euler's Method**.  
+     - **Runge-Kutta Method (Order 4)**.  
+   - Visualization of solutions and interpolation for additional insights.  
 
 3. **System of First-Order ODEs**  
-   - Code implementation of the RK method (order 4) to solve a system of first-order ODEs.
+   - Solved using the **Runge-Kutta Method (Order 4)**.  
 
-4. **Second-Order ODE**  
-   - Solution of a second-order ODE using the RK method (order 4).
+4. **Second-Order ODEs**  
+   - Addressed with the **Runge-Kutta Method (Order 4)**.
 
-### Part 2: Interpolation and System of Equations
-1. **Data Interpolation**  
-   - Perform cubic spline interpolation on the data provided in `bps.dat`.
-   - Plot the interpolated results for visualization.
+---
 
-2. **Explicit Solution for a System of Equations**  
-   - Derive analytical expressions for \(x\), \(y\), and \(z\) from a given system of equations.
+### 📈 **Part 2: Interpolation and System of Equations**  
+1. **Cubic Spline Interpolation**  
+   - Applied to data in `bps.dat`.  
+   - Visualized with smooth, intuitive plots.  
+
+2. **Explicit Solution for Systems of Equations**  
+   - Derive analytical expressions for \(x\), \(y\), and \(z\) from a given system.  
 
 3. **Population Estimation**  
-   - Use **Newton's Backward Interpolation Formula** to estimate population growth for given census data.
+   - Estimate growth trends using **Newton's Backward Interpolation Formula** and census data.  
 
 ---
 
-## 📂 Files in the Repository
-- **`solutions.py`**: Python script containing implementations of all required numerical methods and visualization.
-- **`bps.dat`**: Input dataset for interpolation tasks.
-- **Sample Questions**: Embedded as comments at the end of `solutions.py`.
+## 📂 **Repository Contents**  
+
+- **`solutions.py`**: Python script containing:  
+  - Numerical method implementations.  
+  - Visualization code.  
+  - Comments explaining sample questions.  
+- **`bps.dat`**: Dataset for cubic spline interpolation.  
 
 ---
 
-## 🚀 How to Run
+## 🚀 **How to Run the Project**  
 
-1. **Install Dependencies**
+1. **Install Dependencies**  
+   Ensure you have the required Python libraries installed:  
+   ```bash
+   pip install matplotlib numpy scipy
+   ```  
 
-   Ensure you have the required Python libraries installed:
-   
-   
-
-## 🏃‍♂️‍➡️ Run the Code
-
-   Execute the script to see results:
-
+2. **Execute the Script**  
+   Run the program to compute and visualize results:  
    ```bash
    python solutions.py
+   ```  
 
+---
+
+## 🎯 **Key Highlights**  
+
+- **Modular Design:** Each method is implemented in a separate, reusable function.  
+- **Visualization:** Clear plots for ODE solutions, interpolation, and more.  
+- **Comprehensive Coverage:** From single-variable to system-level numerical computations.  
+
+---
+
+## 📊 **Preview of Plots**  
+Here are a few examples of what you’ll see:  
+1. **ODE Solution Plots** (Euler vs. RK4).  
+2. **Cubic Spline Interpolation Curve**.  
+
+![Euler Solution](images/euler.png)
+
+*Figure 1: ODE Solution - Euler Method.*
+
+![RK4 Solution](images/rk4.png)
+
+*Figure 2: ODE Solution - RK4 Method.*
+
+![Cubic Spline Interpolation Solution](images/cubicspline.png)
+
+*Figure 3: Cubic Spline Interpolation.*
+  
+
+---
+
+## 💡 **Learning Outcomes**  
+By exploring this repository, you will:  
+1. Strengthen your understanding of numerical techniques.  
+2. Learn practical applications of methods like RK4, Newton-Raphson, and interpolation.  
+3. Develop skills to visualize and analyze computational solutions.  
+
+---  
+
+Happy Coding! 🚀  
+
+---
